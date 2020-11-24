@@ -1,5 +1,7 @@
-html, body{
-    height:100%;}
+html{
+    height:90%;
+    overflow:hidden;
+}
 .conteneur{
     background-color: teal;
 }
@@ -14,7 +16,7 @@ html, body{
     float: left;
     width: 300px;
     background-color: rgba(9, 175, 175, 0.829);
-    height: 550px;
+    height: 600px;
 }
 .main{
     height: 100%;
@@ -22,7 +24,7 @@ html, body{
 }
 
 .menu1{
-    height: 550px;
+    height: 600px;
     background-color: white;
 
 }
@@ -34,9 +36,15 @@ html, body{
 }
 
 .foot {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding-top:50px;
+    height:50px;
     text-align: center;
     background: rgba(9, 175, 175, 0.829);
     max-width:100%;
+
 }
 
 .bs-example{

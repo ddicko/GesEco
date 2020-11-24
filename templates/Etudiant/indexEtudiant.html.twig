@@ -1,0 +1,57 @@
+{% include 'security/vuebase.html.twig' %}
+
+<style type="text/css">
+.madiv{height:600px;overflow-y:auto}
+</style>
+
+<div class="menu1 shadow p-3 mb-5 bg-white rounded card madiv">
+    <div class="">
+        
+                    <h1>Gérer les Etudiants</h1>
+                        {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                        {{ message }}
+                        </div>
+                        {% endfor %}
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Matricule</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for etudiants in etudiants %}
+                                <tr>
+                                    <td><img src="/images/etudiants/{{ etudiants.imageFile }}" style="width:100%;height:auto"></td>
+                                    <td>{{ etudiants.matricule }}</td>
+                                    <td>{{ etudiants.prenom }}</td>
+                                    <td>{{ etudiants.nom }}</td>
+                                    <td>
+                                        <a href="{{ path('etudiant.edit', {id: etudiants.id}) }}" class="btn btn-secondary">Editer</a>
+                                    <form method="post" action="{{ path('etudiant.del', {id: etudiants.id}) }}" style="display: inline-block" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?')">
+                                    <input type="hidden" name="_method"  value="DELETE">
+                                    <input type="hidden" name="_token"  value="{{  csrf_token('delete' ~ etudiants.id) }}">                                 
+                                        <button class="btn btn-danger">Supprimer</button>
+                                    </form>
+
+                                    </td>
+                                </tr>
+                                {% endfor %} 
+                            </tbody>
+
+                        </table>
+                        <div class="navigation">
+                            {{ knp_pagination_render(etudiants) }}
+                        </div>
+                        <div class="text-right">
+                            <a href="{{ path('etudiant.create') }}" class="btn btn-primary">Enrégistrer un Etudiant</a>
+                        </div>
+        
+        
+        
+    </div>    
+</div>

@@ -1,4 +1,5 @@
 {% apply inline_css(source("stylesA.css")) %}
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html" lang="en">
 <head>
@@ -31,7 +32,7 @@
     <body class="conteneur">
     
             <nav class="navbar navbar-expand-lg navbar-light bg-info shadow-lg p-3 mb-5  rounded">
-                <a class="navbar-brand" href="">Prestige</a>
+                <a class="navbar-brand" href="{{ path('acceuil') }}">Prestige</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -39,7 +40,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" {% if current_menu is defined and current_menu == 'properties'  %} active {% endif %} href="">Acheter</a>
+                            <a class="nav-link" {% if current_menu is defined and current_menu == 'properties'  %} active {% endif %} href="{{ path('security_registration') }}">Créer Utilisateur</a>
                         </li>
                     </ul>
                     {% if app.user %}
@@ -48,7 +49,7 @@
                                 <a href="{{ path('security_login') }}" class = "nav-link"><strong>Se Déconnecter</strong></a>
                             </li>
                         </ul>
-                        {% endif %}
+                    {% endif %}
                         
                     
                 </div>
@@ -88,7 +89,33 @@
                                 <div class="card-body">
                                     <p>HTML stands for HyperText Markup Language. HTML is the standard markup language for describing the structure of web pages. <a href="https://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
                                     
-                                    <button type="button" class="btn btn-success">Inscrire</button>
+                    <!-- Button trigger modal -->                                                    
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
+                                        Launch demo modal
+                                    </button>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <a class="btn btn-primary" href="{{ path('etudiant.list') }}" role="button">Liste des Etudiants</a>
                                     <button type="button" class="btn btn-success">Modifier</button>
                                     <button type="button" class="btn btn-success">Supprimer</button>
 
@@ -123,7 +150,7 @@
                 </div>
             </div>
 
-            <footer class="foot shadow-lg p-3 mb-5  rounded">
+            <footer class="foot shadow-sm p-3 mb-5 bg-white rounded">
                 <center>
                 <p>Author: Ib.dicko: <a href="mailto:hege@example.com">idicko321@gmail.com</a></p>
                 </center>
