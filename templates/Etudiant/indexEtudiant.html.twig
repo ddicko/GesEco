@@ -16,7 +16,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th>Photos</th>
                                     <th>Matricule</th>
                                     <th></th>
                                     <th></th>
@@ -26,7 +26,7 @@
                             <tbody>
                                 {% for etudiants in etudiants %}
                                 <tr>
-                                    <td><img src="/images/etudiants/{{ etudiants.imageFile }}" style="width:100%;height:auto"></td>
+                                    <td><img src="/images/etudiants/{{ etudiants.filename }}" style="width:80px;height:80px"></td>
                                     <td>{{ etudiants.matricule }}</td>
                                     <td>{{ etudiants.prenom }}</td>
                                     <td>{{ etudiants.nom }}</td>

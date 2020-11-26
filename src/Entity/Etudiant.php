@@ -64,6 +64,41 @@ class Etudiant
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $adresse;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $contactparent;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nompere;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nommere;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $autres;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $classe;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Classes::class, inversedBy="etudiant")
+     */
+    private $libelle;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -178,6 +213,90 @@ class Etudiant
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getContactparent(): ?int
+    {
+        return $this->contactparent;
+    }
+
+    public function setContactparent(int $contactparent): self
+    {
+        $this->contactparent = $contactparent;
+
+        return $this;
+    }
+
+    public function getNompere(): ?string
+    {
+        return $this->nompere;
+    }
+
+    public function setNompere(string $nompere): self
+    {
+        $this->nompere = $nompere;
+
+        return $this;
+    }
+
+    public function getNommere(): ?string
+    {
+        return $this->nommere;
+    }
+
+    public function setNommere(string $nommere): self
+    {
+        $this->nommere = $nommere;
+
+        return $this;
+    }
+
+    public function getAutres(): ?string
+    {
+        return $this->autres;
+    }
+
+    public function setAutres(?string $autres): self
+    {
+        $this->autres = $autres;
+
+        return $this;
+    }
+
+    public function getClasse(): ?string
+    {
+        return $this->classe;
+    }
+
+    public function setClasse(string $classe): self
+    {
+        $this->classe = $classe;
+
+        return $this;
+    }
+
+    public function getLibelle(): ?Classes
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(?Classes $libelle): self
+    {
+        $this->libelle = $libelle;
 
         return $this;
     }

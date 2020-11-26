@@ -7,30 +7,49 @@
 <div class="menu1 shadow p-3 mb-5 bg-white rounded card madiv">
     <div class="form-group">
         
-                    <h1>Editer l'etudiant</h1>
+                    <h4>Editer l'etudiant</h4>
         
                         {{ form_start(form) }}
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{ form_row(form.matricule) }}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{ form_row(form.nom) }}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{ form_row(form.prenom) }}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{ form_row(form.date_naissance ) }}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{ form_row(form.sexe) }}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-3">
                                 {{ form_row(form.imageFile) }}
                             </div>
+                            <div class="col-md-3">
+                                {{ form_row(form.adresse) }}
+                            </div>
+                            <div class="col-md-3">
+                                {{ form_row(form.contactparent) }}
+                            </div>
+                            <div class="col-md-3">
+                                {{ form_row(form.nompere) }}
+                            </div>
+                            
+                            <div class="col-md-3">
+                                {{ form_row(form.nommere) }}
+                            </div>
+                            <div class="col-md-3">
+                                {{ form_row(form.classe) }}
+                            </div>
+                            <div class="col-md-8">
+                                {{ form_row(form.autres) }}
+                            </div>
 
-                            <br>
+                            
                             
                             <button class="btn btn-success btn-block">modifier</button>
                         
