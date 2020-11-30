@@ -20,7 +20,7 @@ class Classes
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity=etudiant::class, mappedBy="libelle")
+     * @ORM\OneToMany(targetEntity=Etudiant::class, mappedBy="libelle")
      */
     private $etudiant;
 
@@ -33,6 +33,8 @@ class Classes
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $libelle;
+
+    
 
     public function __construct()
     {
@@ -97,4 +99,17 @@ class Classes
 
         return $this;
     }
+
+    /**
+    * toString
+    * @return string
+    */
+    public function __toString()
+    {
+        return $this->libelle;
+    }
+
+    
+
+    
 }

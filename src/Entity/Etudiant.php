@@ -23,7 +23,7 @@ class Etudiant
 
     /**
      * @var string|null
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255,nullable=true)
      */
     private $filename;
 
@@ -60,7 +60,7 @@ class Etudiant
     private $sexe;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime",nullable=true)
      */
     private $updated_at;
 
@@ -89,10 +89,6 @@ class Etudiant
      */
     private $autres;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $classe;
 
     /**
      * @ORM\ManyToOne(targetEntity=Classes::class, inversedBy="etudiant")
@@ -277,17 +273,7 @@ class Etudiant
         return $this;
     }
 
-    public function getClasse(): ?string
-    {
-        return $this->classe;
-    }
-
-    public function setClasse(string $classe): self
-    {
-        $this->classe = $classe;
-
-        return $this;
-    }
+    
 
     public function getLibelle(): ?Classes
     {
@@ -301,4 +287,15 @@ class Etudiant
         return $this;
     }
 
+    /**
+    * toString
+    * @return string
+    */
+    public function __toString()
+    {
+        return $this->matricule;
+    }
+
+    
+    
 }
